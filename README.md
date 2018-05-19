@@ -21,6 +21,7 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Compose file format reference](https://docs.docker.com/compose/compose-file/compose-versioning/#compose-file-format-references)
   * [Compatibility matrix](https://docs.docker.com/compose/compose-file/compose-versioning/#compatibility-matrix)
   * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
+  * [Controlling service startup on Windows](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html)
 * Docker Engine API
   * [Home](https://docs.docker.com/develop/sdk/)
   * [API version history](https://docs.docker.com/engine/api/version-history/)
@@ -34,4 +35,3 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Home](https://stedolan.github.io/jq/)
   * [Documentation](https://stedolan.github.io/jq/manual/)
   * [Playground](https://jqplay.org/)
-* [Controlling service startup on Windows](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html)
