@@ -12,14 +12,17 @@ This repo contains the resources to be used during "How to Control Service Start
 * Docker Compose
   * [Documentation](https://docs.docker.com/compose/)
   * [Releases](https://github.com/docker/compose/releases)
+  * [Compose file format reference](https://docs.docker.com/compose/compose-file/compose-versioning/#compose-file-format-references)
+  * [Compatibility matrix](https://docs.docker.com/compose/compose-file/compose-versioning/#compatibility-matrix)
   * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
 * Docker Engine API
   * [Home](https://docs.docker.com/develop/sdk/)
   * [API version history](https://docs.docker.com/engine/api/version-history/)
-* Docker Daemon
+* Docker
+  * [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) instruction
   * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
 * byrnedo/alpine-curl
- * [Docker image](https://hub.docker.com/r/byrnedo/alpine-curl/)
+  * [Docker image](https://hub.docker.com/r/byrnedo/alpine-curl/)
 * curl
   * [Home](https://curl.haxx.se/)
   * [Documentation](https://curl.haxx.se/docs/manpage.html)
