@@ -14,6 +14,7 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Documentation](https://docs.docker.com/)
   * [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) instruction
   * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
+  * [Understanding the Security Risks of Running Docker Containers: Don't Lose Your Sock(et)s](https://www.ctl.io/developers/blog/post/tutorial-understanding-the-security-risks-of-running-docker-containers)
 * Docker Compose
   * [Documentation](https://docs.docker.com/compose/)
   * [Releases](https://github.com/docker/compose/releases)
@@ -33,3 +34,4 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Home](https://stedolan.github.io/jq/)
   * [Documentation](https://stedolan.github.io/jq/manual/)
   * [Playground](https://jqplay.org/)
+* [Controlling service startup on Windows](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html)
