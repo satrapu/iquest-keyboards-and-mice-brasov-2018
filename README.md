@@ -9,6 +9,11 @@ This repo contains the resources to be used during "How to Control Service Start
 
 <a name="references">References</a>
 --
+* Docker
+  * [Home](https://www.docker.com/)
+  * [Documentation](https://docs.docker.com/)
+  * [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) instruction
+  * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
 * Docker Compose
   * [Documentation](https://docs.docker.com/compose/)
   * [Releases](https://github.com/docker/compose/releases)
@@ -18,9 +23,6 @@ This repo contains the resources to be used during "How to Control Service Start
 * Docker Engine API
   * [Home](https://docs.docker.com/develop/sdk/)
   * [API version history](https://docs.docker.com/engine/api/version-history/)
-* Docker
-  * [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) instruction
-  * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
 * byrnedo/alpine-curl
   * [Docker image](https://hub.docker.com/r/byrnedo/alpine-curl/)
 * curl
