@@ -18,3 +18,13 @@ This repo contains the resources to be used during "How to Control Service Start
   * [API version history](https://docs.docker.com/engine/api/version-history/)
 * Docker Daemon
   * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
+* byrnedo/alpine-curl
+ * [Docker image](https://hub.docker.com/r/byrnedo/alpine-curl/)
+* curl
+  * [Home](https://curl.haxx.se/)
+  * [Documentation](https://curl.haxx.se/docs/manpage.html)
+  * [unix-socket](https://curl.haxx.se/docs/manpage.html#--unix-socket) option
+* jq
+  * [Home](https://stedolan.github.io/jq/)
+  * [Documentation](https://stedolan.github.io/jq/manual/)
+  * [Playground](https://jqplay.org/)
