@@ -9,4 +9,12 @@ This repo contains the resources to be used during "How to Control Service Start
 
 <a name="references">References</a>
 --
-* TBD
+* Docker Compose
+  * [Documentation](https://docs.docker.com/compose/)
+  * [Releases](https://github.com/docker/compose/releases)
+  * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
+* Docker Engine API
+  * [Home](https://docs.docker.com/develop/sdk/)
+  * [API version history](https://docs.docker.com/engine/api/version-history/)
+* Docker Daemon
+  * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
