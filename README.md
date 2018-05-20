@@ -38,3 +38,21 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Home](https://stedolan.github.io/jq/)
   * [Documentation](https://stedolan.github.io/jq/manual/)
   * [Playground](https://jqplay.org/)
+* .NET Core
+  * [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet)
+  * PostgreSQL ADO.NET driver
+    * Home: http://www.npgsql.org/index.html
+    * NuGet package: https://www.nuget.org/packages/Npgsql/3.2.7
+  * Run application and database
+````powershell
+docker-compose down --rmi local `
+;docker-compose build `
+;docker-compose up
+````
+* [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+  * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
+````powershell
+ cd \dotnet-core-with-docker\compose\service-healthy
+ cmd /c mklink /J .\sources .\..\..\sources
+````
+ * [PostgreSQL Docker image](https://hub.docker.com/_/postgres/)
