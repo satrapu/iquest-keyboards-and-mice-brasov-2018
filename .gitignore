@@ -9,7 +9,7 @@ compose/service-healthy/.env
 
 # Hard symbolic links
 compose/docker-engine-api/sources/*
-!compose/port-checking++/sources/EMPTY
+!compose/docker-engine-api/sources/EMPTY
 
 compose/port-checking++/sources/*
 !compose/port-checking++/sources/EMPTY
