@@ -1,0 +1,6 @@
+# .NET Core artifacts
+sources/bin
+sources/obj
+
+# Docker Compose artifacts
+.env
