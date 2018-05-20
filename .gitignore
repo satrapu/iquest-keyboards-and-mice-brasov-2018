@@ -1,4 +1,11 @@
+# .NET Core artifacts
+sources/bin
+sources/obj
 
+# Docker Compose artifacts
 compose/docker-engine-api/.env
+compose/docker-enigne-api/sources
 compose/port-checking++/.env
+compose/port-checking++/sources
 compose/service-healthy/.env
+compose/service-healthy/sources
