@@ -9,9 +9,18 @@ services:
     environment:
       DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   db:
     image: postgres:10.4-alpine
+    healthcheck:
+      test: >
+        pg_isready \
+          --dbname=${db_name} \
+          --username=${db_username}
+      interval: 2s
+      timeout: 5s
+      retries: 10
     stdin_open: true
     tty: true
     environment:

@@ -41,9 +41,12 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Playground](https://jqplay.org/)
 * .NET Core
   * [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet)
-  * PostgreSQL ADO.NET driver
-    * Home: http://www.npgsql.org/index.html
-    * NuGet package: https://www.nuget.org/packages/Npgsql/3.2.7
+  * PostgreSQL 
+    * Docker image: https://hub.docker.com/_/postgres/
+    * pg_isready: https://www.postgresql.org/docs/10/static/app-pg-isready.html
+    * ADO.NET driver
+      * Home: http://www.npgsql.org/index.html  
+      * NuGet package: https://www.nuget.org/packages/Npgsql/3.2.7  
   * Run application and database
 ````powershell
 docker-compose down --rmi local `
