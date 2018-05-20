@@ -1,0 +1,61 @@
+# Run it:
+# docker-compose down --rmi local `
+# ;docker-compose build `
+# ;docker-compose up --exit-code-from check_db_connectivity check_db_connectivity `
+# ;if ($LASTEXITCODE -eq 0) { docker-compose up app } `
+# else { echo "ERROR: Failed to start service due to one of its dependencies!" }
+version: '3.6'
+services:
+  app:
+    image: satrapu/dotnet-core-with-docker-console-runner
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    environment:
+      DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
+    depends_on:
+      - db
+  check_db_connectivity:
+    image: jbergknoff/postgresql-client
+    entrypoint: >
+      /bin/sh -c "
+        sleepingTime='${port_checking_interval}'
+        totalAttempts=${port_checking_attempts}
+        currentAttempt=1
+
+        echo \"Start checking whether PostgreSQL database \"${db_name}\" is up & running\" \
+              \"(able to process incoming connections) each $$sleepingTime for a total amount of $$totalAttempts times\"
+
+        while [ $$currentAttempt -le $$totalAttempts ]; do
+          sleep $$sleepingTime
+          
+          pg_isready --host=db --port=5432 --dbname=${db_name} --username=${db_username}
+
+          if [ $$? -eq 0 ]; then
+            echo \"OK: [$$currentAttempt/$$totalAttempts] PostgreSQL database '${db_name}' is up & running.\"
+            return 0
+          else
+            echo \"WARN: [$$currentAttempt/$$totalAttempts] PostgreSQL database '${db_name}' is still NOT up & running ...\"
+            currentAttempt=`expr $$currentAttempt + 1`
+          fi
+        done;
+
+        echo 'ERROR: Could not connect to PostgreSQL database '${db_name}' in due time.'
+        return 1"
+    depends_on:
+      - db
+  db:
+    image: postgres:10.4-alpine
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_DB: ${db_name}
+      POSTGRES_USER: ${db_username}
+      POSTGRES_PASSWORD: ${db_password}
+    ports:
+      - 5432
+    volumes:
+      - dotnet-core-with-docker-postgres-data:/var/lib/postgresql/data
+volumes:
+  dotnet-core-with-docker-postgres-data:
