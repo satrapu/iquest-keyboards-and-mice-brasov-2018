@@ -21,6 +21,12 @@ namespace Satrapu.KeyboardsAndMice
         {
             IConfiguration config = new ConfigurationBuilder().AddEnvironmentVariables().Build();
             var connString = config["DB_CONNECTION_STRING"];
+
+            if(string.IsNullOrWhiteSpace(connString))
+            {
+                throw new InvalidOperationException("Connection string must not be null or whitespace.");
+            }
+
             Console.WriteLine($"DB_CONNECTION_STRING: {connString}");
             Console.WriteLine($"{"TABLE_SCHEMA", -25} | {"TABLE_NAME", -50} | {"TABLE_TYPE"}");
 
