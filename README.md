@@ -43,6 +43,7 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet)
   * PostgreSQL 
     * Docker image: https://hub.docker.com/_/postgres/
+    * Client Docker image: https://hub.docker.com/r/jbergknoff/postgresql-client/
     * pg_isready: https://www.postgresql.org/docs/10/static/app-pg-isready.html
     * ADO.NET driver
       * Home: http://www.npgsql.org/index.html  
