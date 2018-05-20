@@ -1,0 +1,26 @@
+version: '2.1'
+services:
+  app:
+    image: satrapu/dotnet-core-with-docker-console-runner
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    environment:
+      DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
+    depends_on:
+      - db
+  db:
+    image: postgres:10.4-alpine
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_DB: ${db_name}
+      POSTGRES_USER: ${db_username}
+      POSTGRES_PASSWORD: ${db_password}
+    ports:
+      - 5432
+    volumes:
+      - dotnet-core-with-docker-postgres-data:/var/lib/postgresql/data
+volumes:
+  dotnet-core-with-docker-postgres-data:
