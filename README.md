@@ -22,7 +22,9 @@ This repo contains the resources to be used during "How to Control Service Start
   * [Compatibility matrix](https://docs.docker.com/compose/compose-file/compose-versioning/#compatibility-matrix)
   * [Environment variables in Compose](https://docs.docker.com/compose/environment-variables/)
   * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
-  * [Controlling service startup - Windows flavor](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html)
+  * [Compose file depends_on directive](https://docs.docker.com/compose/compose-file/#depends_on)
+  * [Depends_on in version3](https://github.com/docker/compose/issues/4305#issuecomment-276527457)
+  * [My blog post used as the basis of this presentation](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html)
 * Docker Engine API
   * [Home](https://docs.docker.com/develop/sdk/)
   * [API version history](https://docs.docker.com/engine/api/version-history/)
