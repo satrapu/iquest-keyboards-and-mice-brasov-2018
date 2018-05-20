@@ -15,6 +15,7 @@ This repo contains the resources to be used during "How to Control Service Start
   * [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) instruction
   * [Daemon socket option](https://docs.docker.com/engine/reference/commandline/dockerd/#examples)
   * [Understanding the Security Risks of Running Docker Containers: Don't Lose Your Sock(et)s](https://www.ctl.io/developers/blog/post/tutorial-understanding-the-security-risks-of-running-docker-containers)
+  * [Multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
 * Docker Compose
   * [Documentation](https://docs.docker.com/compose/)
   * [Releases](https://github.com/docker/compose/releases)
