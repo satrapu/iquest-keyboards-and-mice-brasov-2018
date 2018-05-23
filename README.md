@@ -74,13 +74,13 @@ TBD
 --
 * Clone this repo
 ````powershell
-mkdir iqkmbv2018
-cd iqkmbv2018
 git clone https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
+cd iquest-keyboards-and-mice-brasov-2018
 ````
 * Start services
   * Using depends_on, condition and service_healthy:
   ````powershell
+  # PowerShell console run as admin
   cd .\compose\service-healthy `
   ;docker-compose down --rmi local `
   ;docker-compose build `
@@ -88,6 +88,7 @@ git clone https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
   ```` 
   * Using Docker Engine API
   ````powershell
+  # PowerShell console run as admin
   cd .\compose\docker-engine-api `
   ;docker-compose down --rmi local `
   ;docker-compose build `
@@ -95,6 +96,7 @@ git clone https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
   ```` 
   * Using port checking++
   ````powershell
+  # PowerShell console run as admin
   cd .\port-checking++ `
   ;docker-compose down --rmi local `
   ;docker-compose build `
