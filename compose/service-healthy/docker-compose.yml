@@ -1,7 +1,3 @@
-# Run it:
-# docker-compose down --rmi local `
-# ;docker-compose build `
-# ;docker-compose up app
 version: '2.1'
 services:
   app:
