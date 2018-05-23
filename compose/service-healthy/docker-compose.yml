@@ -22,9 +22,9 @@ services:
         pg_isready \
           --dbname=${db_name} \
           --username=${db_username}
-      interval: 2s
-      timeout: 5s
-      retries: 10
+      interval: ${db_healthcheck_interval}
+      timeout: ${db_healthcheck_timeout}
+      retries: ${db_healthcheck_retries}
     stdin_open: true
     tty: true
     environment:
