@@ -1,0 +1,63 @@
+version: '3.6'
+services:
+  app:
+    image: satrapu/dotnet-core-with-docker-console-runner
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    environment:
+      DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
+    depends_on:
+      - db
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: >
+      /bin/sh -c "
+        sleepingTime='${check_db_sleep}'
+        totalAttempts=${check_db_retries}
+        currentAttempt=1
+
+        echo \"Start checking whether PostgreSQL database \"${db_name}\" is up & running\" \
+              \"(able to process incoming connections) each $$sleepingTime for a total amount of $$totalAttempts times\"
+
+        while [ $$currentAttempt -le $$totalAttempts ]; do
+          sleep $$sleepingTime
+          
+          response=$$(curl --silent --unix-socket /var/run/docker.sock http://v$${docker_api_version}/containers/json | \
+            jq '.[] | select(.Names[] | contains(\"_db_\")) | select(.State == \"running\") | .Status | contains(\"healthy\")')
+
+          if [ \"$$response\" = \"true\" ]; then
+            echo \"OK: [$$currentAttempt/$$totalAttempts] PostgreSQL database \"${db_name}\" is up & running.\"
+            dotnet dotnet-core-with-docker.dll
+            return 0
+          else
+            echo \"WARN: [$$currentAttempt/$$totalAttempts] PostgreSQL database \"${db_name}\" is still NOT up & running ...\"
+            currentAttempt=`expr $$currentAttempt + 1`
+          fi
+        done;
+
+        echo 'ERROR: Could not connect to PostgreSQL database \"${db_name}\" in due time.'
+        return 1"
+  db:
+    image: postgres:10.4-alpine
+    healthcheck:
+      test: >
+        pg_isready \
+          --dbname=${db_name} \
+          --username=${db_username}
+      interval: ${db_healthcheck_interval}
+      timeout: ${db_healthcheck_timeout}
+      retries: ${db_healthcheck_retries}
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_DB: ${db_name}
+      POSTGRES_USER: ${db_username}
+      POSTGRES_PASSWORD: ${db_password}
+    ports:
+      - 5432
+    volumes:
+      - dotnet-core-with-docker-postgres-data:/var/lib/postgresql/data
+volumes:
+  dotnet-core-with-docker-postgres-data:
