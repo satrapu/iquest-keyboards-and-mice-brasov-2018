@@ -1,9 +1,3 @@
-# Run it:
-# docker-compose down --rmi local `
-# ;docker-compose build `
-# ;docker-compose up --exit-code-from check_db_connectivity check_db_connectivity `
-# ;if ($LASTEXITCODE -eq 0) { docker-compose up app } `
-# else { echo "ERROR: Failed to start service due to one of its dependencies!" }
 version: '3.6'
 services:
   app:
@@ -20,7 +14,7 @@ services:
     image: jbergknoff/postgresql-client
     entrypoint: >
       /bin/sh -c "
-        sleepingTime='${port_checking_interval}'
+        sleepingTime='${port_checking_sleep}'
         totalAttempts=${port_checking_attempts}
         currentAttempt=1
 
