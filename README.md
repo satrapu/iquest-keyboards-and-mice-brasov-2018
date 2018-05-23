@@ -60,19 +60,23 @@ TBD
   * [Client Docker image](https://hub.docker.com/r/jbergknoff/postgresql-client/)
   * [pg_isready](https://www.postgresql.org/docs/10/static/app-pg-isready.html)
 * Symbolic links
-  * [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
-  * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
-  ````powershell
-  cd \dotnet-core-with-docker\compose\service-healthy
-  cmd /c mklink /J .\sources .\..\..\sources
-  ````
+  * On Windows
+    * [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+    * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
+    ````powershell
+    cd \dotnet-core-with-docker\compose\service-healthy
+    cmd /c mklink /J .\sources .\..\..\sources
+    ````
+  * On Linux
+    * TBD  
+
 <a name="run">Running the  Application</a>  
 --
 * Clone this repo
 ````powershell
 mkdir iqkmbv2018
 cd iqkmbv2018
-https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
+git clone https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
 ````
 * Start services
   * Using depends_on, condition and service_healthy:
