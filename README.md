@@ -90,6 +90,7 @@ cd iquest-keyboards-and-mice-brasov-2018
   ````powershell
   # PowerShell console run as admin
   cd .\compose\docker-engine-api `
+  ;$Env:COMPOSE_CONVERT_WINDOWS_PATHS=1 `
   ;docker-compose down --rmi local `
   ;docker-compose build `
   ;docker-compose up app
