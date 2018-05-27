@@ -75,33 +75,66 @@ TBD
 * Clone this repo
 ````powershell
 git clone https://github.com/satrapu/iquest-keyboards-and-mice-brasov-2018.git
-cd iquest-keyboards-and-mice-brasov-2018
+cd ./iquest-keyboards-and-mice-brasov-2018
 ````
 * Start services
   * Using depends_on, condition and service_healthy:
   ````powershell
-  # PowerShell console run as admin
+  # Windows - PowerShell console run as admin
   cd .\compose\service-healthy `
+  ;cmd /c mklink /J .\sources .\..\..\sources `
   ;docker-compose down --rmi local `
   ;docker-compose build `
   ;docker-compose up app
   ```` 
+
+  ````bash
+  # Linux - Bash
+  cd ./compose/service-healthy \
+  && cmd /c mklink /J ./sources ./../../sources \
+  && docker-compose down --rmi local `
+  && docker-compose build \
+  && docker-compose up app
+  ```` 
+
   * Using Docker Engine API
   ````powershell
-  # PowerShell console run as admin
+  # Windows - PowerShell console run as admin
   cd .\compose\docker-engine-api `
+  ;cmd /c mklink /J .\sources .\..\..\sources `
   ;$Env:COMPOSE_CONVERT_WINDOWS_PATHS=1 `
   ;docker-compose down --rmi local `
   ;docker-compose build `
   ;docker-compose up app
   ```` 
+
+  ````bash
+  # Linux - Bash
+  cd ./compose/docker-engine-api \
+  && cmd /c mklink /J ./sources ./../../sources \
+  && docker-compose down --rmi local `
+  && docker-compose build \
+  && docker-compose up app
+  ```` 
+
   * Using port checking++
   ````powershell
-  # PowerShell console run as admin
+  # Windows - PowerShell console run as admin
   cd .\port-checking++ `
+  ;cmd /c mklink /J .\sources .\..\..\sources `
   ;docker-compose down --rmi local `
   ;docker-compose build `
   ;docker-compose up --exit-code-from check_db_connectivity check_db_connectivity `
   ;if ($LASTEXITCODE -eq 0) { docker-compose up app } `
   else { echo "ERROR: Failed to start service due to one of its dependencies!" }
+  ```` 
+
+  ````bash
+  # Linux - Bash
+  cd ./port-checking++ \
+  && cmd /c mklink /J .\sources .\..\..\sources \
+  && docker-compose down --rmi local \
+  && docker-compose build \
+  && docker-compose up --exit-code-from check_db_connectivity check_db_connectivity \
+  && if [ $? -eq 0 ] docker-compose up app else echo "ERROR: Failed to start service due to one of its dependencies!" fi
   ```` 
