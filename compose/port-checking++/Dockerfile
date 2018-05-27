@@ -1,5 +1,7 @@
 FROM microsoft/dotnet:2.1-sdk AS build
 
+LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
+
 WORKDIR /app
 
 COPY sources/ .
