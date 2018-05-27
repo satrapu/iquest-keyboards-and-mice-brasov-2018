@@ -8,37 +8,15 @@ services:
     tty: true
     environment:
       DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
+      DB_NAME: ${db_name}
+      DB_SERVICE_NAME: db
+      CHECK_DB_SLEEP: ${check_db_sleep}
+      CHECK_DB_RETRIES: ${check_db_retries}
+      DOCKER_API_VERSION: ${docker_api_version}
     depends_on:
       - db
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    entrypoint: >
-      /bin/sh -c "
-        sleepingTime='${check_db_sleep}'
-        totalAttempts=${check_db_retries}
-        currentAttempt=1
-
-        echo \"Start checking whether PostgreSQL database \"${db_name}\" is up & running\" \
-              \"(able to process incoming connections) each $$sleepingTime for a total amount of $$totalAttempts times\"
-
-        while [ $$currentAttempt -le $$totalAttempts ]; do
-          sleep $$sleepingTime
-          
-          response=$$(curl --silent --unix-socket /var/run/docker.sock http://v$${docker_api_version}/containers/json | \
-            jq '.[] | select(.Names[] | contains(\"_db_\")) | select(.State == \"running\") | .Status | contains(\"healthy\")')
-
-          if [ \"$$response\" = \"true\" ]; then
-            echo \"OK: [$$currentAttempt/$$totalAttempts] PostgreSQL database \"${db_name}\" is up & running.\"
-            dotnet dotnet-core-with-docker.dll
-            return 0
-          else
-            echo \"WARN: [$$currentAttempt/$$totalAttempts] PostgreSQL database \"${db_name}\" is still NOT up & running ...\"
-            currentAttempt=`expr $$currentAttempt + 1`
-          fi
-        done;
-
-        echo 'ERROR: Could not connect to PostgreSQL database \"${db_name}\" in due time.'
-        return 1"
+      - /var/run/docker.sock:/var/run/docker.sock        
   db:
     image: postgres:10.4-alpine
     healthcheck:

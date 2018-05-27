@@ -15,10 +15,11 @@ FROM microsoft/dotnet:2.1-runtime AS runtime
 WORKDIR /app
 
 COPY --from=build /app/out ./
+COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         jq=1.5+dfsg-1.3 \
      && rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["dotnet", "dotnet-core-with-docker.dll"]
+ENTRYPOINT ["/bin/docker-entrypoint.sh"]
