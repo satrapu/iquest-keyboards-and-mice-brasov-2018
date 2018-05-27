@@ -2,7 +2,7 @@
 ### Ensure when editing this file on Windows, its line-endings are set to "LF" instead of "CRLF"!
 set -eu
 
-function main() {
+main() {
     sleepingTime="$PORT_CHECKING_SLEEP"
     totalAttempts=$PORT_CHECKING_ATTEMPTS
     currentAttempt=1
