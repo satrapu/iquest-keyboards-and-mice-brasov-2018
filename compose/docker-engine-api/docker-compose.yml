@@ -9,9 +9,10 @@ services:
     environment:
       DB_CONNECTION_STRING: "Host=db; Port=5432; Database=${db_name}; Username=${db_username}; Password=${db_password};"
       DB_NAME: ${db_name}
-      DB_SERVICE_NAME: db
       CHECK_DB_SLEEP: ${check_db_sleep}
       CHECK_DB_RETRIES: ${check_db_retries}
+      COMPOSE_SERVICE_NAME: db
+      COMPOSE_PROJECT_NAME: docker-engine-api
       DOCKER_API_VERSION: ${docker_api_version}
     depends_on:
       - db
