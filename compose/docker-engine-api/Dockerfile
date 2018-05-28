@@ -12,6 +12,8 @@ RUN dotnet restore \
 
 FROM microsoft/dotnet:2.1-runtime AS runtime
 
+LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
+
 WORKDIR /app
 
 COPY --from=build /app/out ./
