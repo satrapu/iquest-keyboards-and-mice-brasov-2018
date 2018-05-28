@@ -59,17 +59,15 @@ TBD
   * [Docker image](https://hub.docker.com/_/postgres/)
   * [Client Docker image](https://hub.docker.com/r/jbergknoff/postgresql-client/)
   * [pg_isready](https://www.postgresql.org/docs/10/static/app-pg-isready.html)
-* Symbolic links
-  * On Windows
-    * [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
-    * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
-    ````powershell
-    cd \dotnet-core-with-docker\compose\service-healthy
-    cmd /c mklink /J .\sources .\..\..\sources
-    ````
-  * On Linux
-    * TBD  
-
+* Symbolic links on Windows
+  * [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+  * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
+  ````powershell
+  # PowerShell
+  cd .\dotnet-core-with-docker\compose\service-healthy
+  cmd /c mklink /J .\sources .\..\..\sources
+  ````
+  
 <a name="run">Running the  Application</a>  
 --
 * Clone this repo
@@ -91,8 +89,8 @@ cd ./iquest-keyboards-and-mice-brasov-2018
   ````bash
   # Linux - Bash
   cd ./compose/service-healthy \
-  && cmd /c mklink /J ./sources ./../../sources \
-  && docker-compose down --rmi local `
+  && mkdir ./sources && cp ../../sources/* sources \
+  && docker-compose down --rmi local \
   && docker-compose build \
   && docker-compose up app
   ```` 
@@ -111,8 +109,8 @@ cd ./iquest-keyboards-and-mice-brasov-2018
   ````bash
   # Linux - Bash
   cd ./compose/docker-engine-api \
-  && cmd /c mklink /J ./sources ./../../sources \
-  && docker-compose down --rmi local `
+  && mkdir ./sources && cp ../../sources/* sources \
+  && docker-compose down --rmi local \
   && docker-compose build \
   && docker-compose up app
   ```` 
@@ -132,9 +130,9 @@ cd ./iquest-keyboards-and-mice-brasov-2018
   ````bash
   # Linux - Bash
   cd ./port-checking++ \
-  && cmd /c mklink /J .\sources .\..\..\sources \
+  && mkdir ./sources && cp ../../sources/* sources \
   && docker-compose down --rmi local \
   && docker-compose build \
   && docker-compose up --exit-code-from check_db_connectivity check_db_connectivity \
-  && if [ $? -eq 0 ] docker-compose up app else echo "ERROR: Failed to start service due to one of its dependencies!" fi
+  && if [ $? -eq 0 ]; then docker-compose up app; else echo 'ERROR: Failed to start service due to one of its dependencies!'; fi
   ```` 
