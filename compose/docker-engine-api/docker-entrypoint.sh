@@ -14,7 +14,12 @@ main() {
         sleep $sleepingTime
         
         response=$(curl --silent --unix-socket /var/run/docker.sock http://v$DOCKER_API_VERSION/containers/json | \
-                    jq '.[] | select(.Labels["com.docker.compose.service"] == "'$DB_SERVICE_NAME'") | select(.State == "running") | .Status | contains("healthy")')
+                    jq '.[] 
+                        | select(.Labels["com.docker.compose.project"] == "'$COMPOSE_PROJECT_NAME'" and .Labels["com.docker.compose.service"] == "'$COMPOSE_SERVICE_NAME'") 
+                        | select(.State == "running") 
+                        | .Status
+                        | contains("health")'
+        )
 
         if [ "$response" = "true" ]; then
             echo "OK: [$currentAttempt/$totalAttempts] PostgreSQL database \"$DB_NAME\" is up & running."
