@@ -33,6 +33,7 @@ TBD
   * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
   * [Compose file depends_on directive](https://docs.docker.com/compose/compose-file/#depends_on)
   * [Depends_on in version3](https://github.com/docker/compose/issues/4305#issuecomment-276527457)
+  * [Docker-compose bind mount docker.sock not a valid Windows path](https://github.com/docker/for-win/issues/1829#issuecomment-376328022)
 * Docker Engine API
   * [Home](https://docs.docker.com/develop/sdk/)
   * [API version history](https://docs.docker.com/engine/api/version-history/)
