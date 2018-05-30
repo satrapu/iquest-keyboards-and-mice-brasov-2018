@@ -14,6 +14,7 @@ COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 
 RUN apk --update add \
         postgresql-client=10.4-r0 \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && chmod +x /bin/docker-entrypoint.sh
 
-ENTRYPOINT [ "/bin/docker-entrypoint.sh" ]
+ENTRYPOINT ["sh", "/bin/docker-entrypoint.sh"]

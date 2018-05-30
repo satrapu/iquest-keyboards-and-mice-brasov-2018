@@ -22,6 +22,7 @@ COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         jq=1.5+dfsg-1.3 \
-     && rm -rf /var/lib/apt/lists/*
+     && rm -rf /var/lib/apt/lists/* \
+     && chmod +x /bin/docker-entrypoint.sh
 
-ENTRYPOINT ["/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "/bin/docker-entrypoint.sh"]
