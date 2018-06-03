@@ -49,6 +49,7 @@ TBD
 * .NET Core
   * [Home](https://github.com/dotnet/core)
   * [Documentation](https://docs.microsoft.com/en-us/dotnet/core/)
+  * [Docker images](https://hub.docker.com/r/microsoft/dotnet/)
   * [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet)
   * PostgreSQL ADO\.NET driver
     * [Home](http://www.npgsql.org/index.html)
@@ -60,6 +61,9 @@ TBD
   * [Docker image](https://hub.docker.com/_/postgres/)
   * [Client Docker image](https://hub.docker.com/r/jbergknoff/postgresql-client/)
   * [pg_isready](https://www.postgresql.org/docs/10/static/app-pg-isready.html)
+* Alpine Linux
+  * [Home](https://alpinelinux.org/)
+  * [Packages for v3.7, x64](https://pkgs.alpinelinux.org/packages?name=&branch=v3.7&repo=main&arch=x86_64)
 * Symbolic links on Windows
   * [The Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
   * Create a hard-link from /dotnet-core-with-docker/sources to /dotnet-core-with-docker/compose/service-healthy folder:
