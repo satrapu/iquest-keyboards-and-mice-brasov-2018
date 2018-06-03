@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   app:
-    image: satrapu/dotnet-core-with-docker-console-runner
+    image: satrapu/dotnet-core-with-docker-sh
     build:
       context: .
     stdin_open: true
