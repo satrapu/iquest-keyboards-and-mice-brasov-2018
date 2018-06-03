@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM microsoft/dotnet:2.1-sdk-alpine3.7 AS build
 
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
@@ -10,7 +10,7 @@ RUN dotnet restore \
     && dotnet build \
     && dotnet publish -c Release -o out
 
-FROM microsoft/dotnet:2.1-runtime AS runtime
+FROM microsoft/dotnet:2.1-runtime-alpine3.7 AS runtime
 
 WORKDIR /app
 
