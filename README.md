@@ -123,7 +123,7 @@ cd ./iquest-keyboards-and-mice-brasov-2018
   * Using port checking++
   ````powershell
   # Windows - PowerShell console run as admin
-  cd .\port-checking++ `
+  cd .\compose\port-checking++ `
   ;cmd /c mklink /J .\sources .\..\..\sources `
   ;docker-compose down --rmi local `
   ;docker-compose build `
@@ -134,7 +134,7 @@ cd ./iquest-keyboards-and-mice-brasov-2018
 
   ````bash
   # Linux - Bash
-  cd ./port-checking++ \
+  cd ./compose/port-checking++ \
   && mkdir ./sources && cp ../../sources/* sources \
   && docker-compose down --rmi local \
   && docker-compose build \
