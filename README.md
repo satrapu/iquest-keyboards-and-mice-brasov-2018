@@ -7,7 +7,7 @@
 
 <a name="description">Description</a>
 --
-This repo contains the resources to be used during "How to Control Service Startup Order in Docker Compose" presentation at the [Keyboards & Mice](https://www.iquestgroup.com/en/event/keyboards-mice-brasov-2018/) iQuest public event, which is scheduled to take place in Brașov on June 6th, 2018.  
+This repo contains the resources used during "How to Control Service Startup Order in Docker Compose" presentation at the [Keyboards & Mice](https://www.iquestgroup.com/en/event/keyboards-mice-brasov-2018/) iQuest public event, which took place in Brașov on June 6th, 2018.  
 
 This presentation is based on [this article](https://crossprogramming.com/2018/05/13/controlling-service-startup-order-in-docker-compose.html), but while the latter shows a Java console application fetching data from a MySQL database, the former uses a .NET Core console application fetching data from a PostgreSQL database.  
 
