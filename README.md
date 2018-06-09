@@ -13,7 +13,7 @@ This presentation is based on [this article](https://crossprogramming.com/2018/0
 
 <a name="slides">Presentation Slides</a>  
 --
-TBD
+SlideShare: https://www.slideshare.net/satrapu/how-to-control-service-startup-order-in-docker-compose
 
 <a name="references">References</a>  
 --
